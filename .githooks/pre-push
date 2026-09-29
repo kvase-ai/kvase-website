@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "Install Gitleaks and put it on PATH before pushing (see README.md)." >&2
+  exit 1
+fi
+exec gitleaks git --redact --no-banner

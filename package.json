@@ -4,7 +4,7 @@
   "private": true,
   "description": "The static landing page for kvase.ai",
   "engines": {
-    "node": ">=22.22.0"
+    "node": ">=22.22.1"
   },
   "scripts": {
     "dev": "python3 -m http.server 8080 --directory site --bind 127.0.0.1",
@@ -13,8 +13,12 @@
     "check": "prettier --check . && npm run lint",
     "prepare": "git config core.hooksPath .githooks"
   },
+  "lint-staged": {
+    "*.{html,css,json,md,yml,yaml}": "prettier --write"
+  },
   "devDependencies": {
     "html-validate": "11.16.1",
+    "lint-staged": "17.6.0",
     "prettier": "3.9.9"
   }
 }
