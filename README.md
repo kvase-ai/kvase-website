@@ -34,10 +34,14 @@ to `main`. No build step or deployment secrets are needed. Only `site/` is
 published. Set **Settings → Pages → Build and deployment → Source** to
 **GitHub Actions**.
 
-The canonical domain is `kvase.ai`. To connect it:
+The canonical domain is `kvase.ai`, with Cloudflare as authoritative DNS and
+OnlyDomains remaining the registrar. To connect it:
 
-1. Set **Settings → Pages → Custom domain** to `kvase.ai`.
-2. At the DNS provider, replace the apex (`@`) A record with these four records:
+1. Add `kvase.ai` to Cloudflare DNS. Review the imported records against the
+   existing OnlyDomains zone before switching nameservers; preserve mail
+   (including MX and any supporting A/TXT records) and unrelated subdomains.
+2. Replace the old website records in the Cloudflare zone with these
+   **DNS-only** records:
 
    | Type  | Name | Value              |
    | ----- | ---- | ------------------ |
@@ -47,14 +51,22 @@ The canonical domain is `kvase.ai`. To connect it:
    | A     | @    | 185.199.111.153    |
    | CNAME | www  | kvase-ai.github.io |
 
-3. Remove conflicting apex or `www` A/AAAA/CNAME records, if present. Preserve
-   email (MX/TXT) and other subdomain records.
-4. Once DNS is verified and GitHub provisions the certificate, enable **Enforce
-   HTTPS** in Pages settings.
+3. Remove the old apex A/AAAA records and any conflicting `www` records from
+   the Cloudflare zone. Confirm the old zone's DNSSEC/DS status before changing
+   nameservers.
+4. Set **Settings → Pages → Custom domain** to `kvase.ai`. At OnlyDomains,
+   replace its three nameservers with the **two nameservers assigned to this
+   exact Cloudflare zone**. Wait for Cloudflare to show the zone as active and
+   verify that public DNS returns the GitHub Pages records.
+5. Once GitHub provisions the certificate, enable **Enforce HTTPS** in Pages
+   settings.
 
 For the Actions publishing source, GitHub stores the custom domain in Pages
 settings; a `CNAME` file is not used. See the
 [GitHub custom domain documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+Cloudflare's [full DNS setup](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/)
+and [OnlyDomains delegation steps](https://support.onlydomains.com/hc/en-gb/articles/4406251623057-How-do-I-change-my-Name-Servers-delegate)
+cover the nameserver handoff.
 
 ## Assets and claims
 
