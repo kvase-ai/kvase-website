@@ -58,11 +58,14 @@ settings; a `CNAME` file is not used. See the
 
 ## Assets and claims
 
-The sparse black-and-amber visual direction comes from the September 2026 pitch
-deck. The copy draws on its benchmark summary (slide 2) and product description
-(slide 5). The benchmark measured fewer **frontier tokens**, not a guaranteed
-80% reduction in a customer's total bill. `social.png` is the 1200 × 630
-sharing image and should be updated when the headline changes.
+The cost and performance promise follows the September 2026 founder discussion
+and pitch deck. The page says **up to 80%** because actual savings depend on
+the workload. The black, off-white and lime identity follows the logo
+variants shared by the team. The mark is a vector rendering of the three-arm
+symbol used in the macOS app; the small menu illustration follows the app
+screenshot while omitting personal account and development-server details.
+`social.png` is the 1200 × 630 sharing image and should be updated when the
+headline changes.
 
 Keep private notes, decks, customer information and credentials out of this
 public repository.
