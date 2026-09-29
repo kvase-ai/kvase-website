@@ -1,24 +1,13 @@
-@font-face {
-  font-family: "Instrument Sans";
-  src: url("./assets/instrument-sans.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-}
-
 :root {
-  color-scheme: light;
-  --paper: #f5f7fa;
-  --ink: #172433;
-  --muted: #536171;
-  --violet: #6150b8;
-  --violet-dark: #4d3d9a;
-  --line: #dce1e8;
-  font-family: "Instrument Sans", Arial, sans-serif;
-  color: var(--ink);
-  background: var(--paper);
+  color-scheme: dark;
+  --ink: #111111;
+  --paper: #f8f7f4;
+  --muted: #b8b6b1;
+  --amber: #dba953;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--paper);
+  background: var(--ink);
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -32,7 +21,7 @@ body {
 
 ::selection {
   color: var(--ink);
-  background: #dcd8f4;
+  background: var(--amber);
 }
 
 a {
@@ -40,8 +29,8 @@ a {
 }
 
 a:focus-visible {
-  outline: 3px solid var(--violet);
-  outline-offset: 6px;
+  outline: 3px solid var(--amber);
+  outline-offset: 5px;
 }
 
 .page {
@@ -50,7 +39,7 @@ a:focus-visible {
   min-height: 100svh;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 44px clamp(24px, 6vw, 88px) 28px;
+  padding: 40px clamp(24px, 6vw, 88px) 28px;
 }
 
 .header,
@@ -62,66 +51,66 @@ a:focus-visible {
 }
 
 .wordmark {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  display: inline-block;
+  padding: 0 1px 5px;
+  border-bottom: 2px dashed var(--amber);
+  color: var(--paper);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1;
   text-decoration: none;
-  font-size: 31px;
-  font-weight: 600;
-  letter-spacing: -1.2px;
-}
-
-.wordmark svg {
-  width: 27px;
-  height: 27px;
-  color: var(--violet);
 }
 
 .status {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
   color: var(--muted);
   font-size: 14px;
 }
 
 .status-dot {
+  display: inline-block;
   width: 6px;
   height: 6px;
-  flex-shrink: 0;
+  margin-right: 9px;
   border-radius: 50%;
-  background: var(--violet);
+  background: var(--amber);
+  vertical-align: 2px;
 }
 
 .hero {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  display: flex;
   align-items: center;
   flex: 1;
-  gap: 16px;
-  padding: 90px 0 110px;
+  padding: 100px 0 120px;
 }
 
 .hero-copy {
-  position: relative;
-  z-index: 1;
+  max-width: 950px;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(42px, 4.65vw, 67px);
-  font-weight: 500;
-  line-height: 1.08;
+  font-size: clamp(48px, 6.6vw, 94px);
+  font-weight: 400;
+  line-height: 1.05;
   letter-spacing: -0.055em;
 }
 
+.result {
+  max-width: 600px;
+  margin: 38px 0 0;
+  color: var(--amber);
+  font-size: clamp(20px, 2.5vw, 29px);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
 .pitch {
-  max-width: 390px;
-  margin: 30px 0 32px;
+  max-width: 580px;
+  margin: 20px 0 32px;
   color: var(--muted);
   font-size: 19px;
-  line-height: 1.6;
-  letter-spacing: -0.015em;
+  line-height: 1.55;
 }
 
 .contact {
@@ -130,42 +119,23 @@ h1 {
   justify-content: center;
   min-height: 50px;
   padding: 13px 25px;
-  border-radius: 6px;
-  color: white;
-  background: var(--violet);
+  border-radius: 4px;
+  color: var(--ink);
+  background: var(--amber);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   text-decoration: none;
 }
 
 .contact:hover {
-  background: var(--violet-dark);
-}
-
-.token-art {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 540px;
-  justify-self: end;
+  background: #eac27c;
 }
 
 .footer {
   padding-top: 22px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid #3d3b37;
   color: var(--muted);
   font-size: 13px;
-}
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1.4fr 1fr;
-    gap: 0;
-  }
-
-  h1 {
-    font-size: clamp(40px, 5.2vw, 50px);
-  }
 }
 
 @media (max-width: 640px) {
@@ -178,40 +148,27 @@ h1 {
     font-size: 27px;
   }
 
-  .wordmark svg {
-    width: 23px;
-    height: 23px;
-  }
-
   .status {
     font-size: 12px;
   }
 
   .hero {
-    grid-template-columns: 1fr;
-    align-content: center;
-    gap: 10px;
-    padding: 72px 0 32px;
+    padding: 76px 0 88px;
   }
 
   h1 {
-    font-size: clamp(35px, 8.9vw, 54px);
+    font-size: clamp(40px, 9.4vw, 59px);
+  }
+
+  .result {
+    margin-top: 28px;
   }
 
   .pitch {
-    max-width: 340px;
-    margin-top: 24px;
-    margin-bottom: 26px;
     font-size: 17px;
   }
 
-  .token-art {
-    width: min(85%, 320px);
-    justify-self: center;
-  }
-
   .footer {
-    gap: 12px;
     font-size: 11px;
   }
 }

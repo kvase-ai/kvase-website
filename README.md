@@ -1,7 +1,7 @@
 # kvase.ai
 
-A small static landing page for Kvase, currently building in stealth. HTML, CSS
-and SVG, with a self-hosted font and no client-side JavaScript or analytics.
+A small static landing page for Kvase, currently building in stealth. HTML and
+CSS, with no client-side JavaScript or analytics.
 
 ## Local development
 
@@ -56,12 +56,13 @@ For the Actions publishing source, GitHub stores the custom domain in Pages
 settings; a `CNAME` file is not used. See the
 [GitHub custom domain documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
 
-## Assets
+## Assets and claims
 
-The wordmark and token illustration are original SVGs. `social.png` is the
-1200 × 630 sharing image and should be updated when the headline or art changes.
-Instrument Sans is distributed under the SIL Open Font License, included at
-`site/assets/OFL.txt`.
+The sparse black-and-amber visual direction comes from the September 2026 pitch
+deck. The copy draws on its benchmark summary (slide 2) and product description
+(slide 5). The benchmark measured fewer **frontier tokens**, not a guaranteed
+80% reduction in a customer's total bill. `social.png` is the 1200 × 630
+sharing image and should be updated when the headline changes.
 
 Keep private notes, decks, customer information and credentials out of this
 public repository.
