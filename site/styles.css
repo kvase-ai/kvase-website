@@ -1,0 +1,217 @@
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("./assets/instrument-sans.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --paper: #f5f7fa;
+  --ink: #172433;
+  --muted: #536171;
+  --violet: #6150b8;
+  --violet-dark: #4d3d9a;
+  --line: #dce1e8;
+  font-family: "Instrument Sans", Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+::selection {
+  color: var(--ink);
+  background: #dcd8f4;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 6px;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 44px clamp(24px, 6vw, 88px) 28px;
+}
+
+.header,
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-size: 31px;
+  font-weight: 600;
+  letter-spacing: -1.2px;
+}
+
+.wordmark svg {
+  width: 27px;
+  height: 27px;
+  color: var(--violet);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--violet);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  flex: 1;
+  gap: 16px;
+  padding: 90px 0 110px;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(42px, 4.65vw, 67px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+}
+
+.pitch {
+  max-width: 390px;
+  margin: 30px 0 32px;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.6;
+  letter-spacing: -0.015em;
+}
+
+.contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 13px 25px;
+  border-radius: 6px;
+  color: white;
+  background: var(--violet);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.contact:hover {
+  background: var(--violet-dark);
+}
+
+.token-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 540px;
+  justify-self: end;
+}
+
+.footer {
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 0;
+  }
+
+  h1 {
+    font-size: clamp(40px, 5.2vw, 50px);
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding-top: 26px;
+    padding-bottom: 22px;
+  }
+
+  .wordmark {
+    font-size: 27px;
+  }
+
+  .wordmark svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .status {
+    font-size: 12px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 10px;
+    padding: 72px 0 32px;
+  }
+
+  h1 {
+    font-size: clamp(35px, 8.9vw, 54px);
+  }
+
+  .pitch {
+    max-width: 340px;
+    margin-top: 24px;
+    margin-bottom: 26px;
+    font-size: 17px;
+  }
+
+  .token-art {
+    width: min(85%, 320px);
+    justify-self: center;
+  }
+
+  .footer {
+    gap: 12px;
+    font-size: 11px;
+  }
+}
