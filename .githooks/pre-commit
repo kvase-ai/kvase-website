@@ -2,3 +2,4 @@
 set -eu
 npx --no-install lint-staged
 npm run lint
+python3 -m unittest discover -s scripts -p 'test_cloudflare_dns.py'

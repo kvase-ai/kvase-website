@@ -26,6 +26,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
+      - run: python3 -m unittest discover -s scripts -p 'test_cloudflare_dns.py'
       - name: Scan Git history for secrets
         env:
           GITLEAKS_VERSION: 8.30.1

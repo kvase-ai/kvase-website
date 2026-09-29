@@ -24,7 +24,8 @@ npm run check
 files with lint-staged (preserving unstaged edits) and validates the HTML. The
 pre-push hook scans Git history with Gitleaks. Install
 [Gitleaks](https://github.com/gitleaks/gitleaks#installing) and put it on your
-`PATH` before pushing. CI repeats formatting, HTML validation and secret checks;
+`PATH` before pushing. CI repeats formatting, HTML validation, DNS-planning
+tests and secret checks;
 its Gitleaks download is version-pinned and checksum-verified.
 
 ## Deployment
@@ -67,6 +68,13 @@ settings; a `CNAME` file is not used. See the
 Cloudflare's [full DNS setup](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/)
 and [OnlyDomains delegation steps](https://support.onlydomains.com/hc/en-gb/articles/4406251623057-How-do-I-change-my-Name-Servers-delegate)
 cover the nameserver handoff.
+
+`python3 scripts/cloudflare_dns.py` shows the proposed website-record changes;
+add `--apply` to make them. The script reads `CLOUDFLARE_API_TOKEN` from the
+environment (Zone Read and DNS Edit permissions) and
+`CLOUDFLARE_ACCOUNT_ID` when creating a new zone. It changes only the apex
+website records and `www`; review the printed MX inventory and all imported
+records before switching nameservers. Keep the token outside this repo.
 
 ## Assets and claims
 
