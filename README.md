@@ -3,6 +3,10 @@
 A small static landing page for Kvase, currently building in stealth. HTML and
 CSS, with no client-side JavaScript or analytics.
 
+The source of this directory is
+[`kvase-material/website`](https://github.com/kvase-ai/kvase-material/tree/main/website)
+(private). Changes there are mirrored here before this repository deploys Pages.
+
 ## Local development
 
 Requires Node.js 22.22.1+ (Node 24 recommended) and Python 3 for the preview server.
